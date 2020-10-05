@@ -5,7 +5,7 @@ key = "9L96X5QQ5MM2DKVX" # Put your API Key here
 
 def thermometer():
     x=0
-    while x < 200:
+    while True:
         #Calculate CPU temperature of Raspberry Pi in Degrees C
         temp = int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3 # Get Raspberry Pi CPU temp
         params = urllib.parse.urlencode({'field1': temp, 'key':key })
