@@ -38,11 +38,11 @@ while True:
         
         sh.load_image("1.png")
         time.sleep(delay)
-        sh.load_image("2.png")
+        sh.load_image("4.png")
         time.sleep(delay)
         sh.load_image("3.png")
         time.sleep(delay)
-        sh.load_image("4.png")
+        sh.load_image("2.png")
 
                 
 
