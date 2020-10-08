@@ -4,7 +4,7 @@ import time
 key = "9L96X5QQ5MM2DKVX" # Put your API Key here
 
 def thermometer():
-    x=0
+
     while True:
         #Calculate CPU temperature of Raspberry Pi in Degrees C
         temp = int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3 # Get Raspberry Pi CPU temp
@@ -23,7 +23,6 @@ def thermometer():
         except:
             print("connection failed")
             break
-        x +=1 
 
     
 if __name__ == "__main__":

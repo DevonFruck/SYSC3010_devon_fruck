@@ -1,30 +1,25 @@
 import http.client
 import urllib.parse
 import time
-key = "9L96X5QQ5MM2DKVX" # Put your API Key here
+key = "AT68QYQ94MQEWXL3" # Put your API Key here
 
-def thermometer():
+def send_data():
 
-    while True:
-        #Calculate CPU temperature of Raspberry Pi in Degrees C
-        temp = int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3 # Get Raspberry Pi CPU temp
-        params = urllib.parse.urlencode({'field1': temp, 'field2': '', 'field3': '', 'key':key })
-        headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
-        conn = http.client.HTTPConnection("api.thingspeak.com:80")
+    params = urllib.parse.urlencode({'field1': 'L3-T-1', 'field2':'devonfruck@cmail.carleton.ca', 'field3': 'b', 'key':key })
+    headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
+    conn = http.client.HTTPConnection("api.thingspeak.com:80")
 
-        try:
-            conn.request("POST", "/update", params, headers)
-            response = conn.getresponse()
-            print(temp)
-            print(response.status, response.reason)
-            data = response.read()
-            conn.close()
+    try:
+        conn.request("POST", "/update", params, headers)
+        response = conn.getresponse()
+        print(response.status, response.reason)
+        data = response.read()
+        conn.close()
      
-        except:
-            print("connection failed")
-            break
+    except:
+        print("connection failed")
 
     
 if __name__ == "__main__":
-    thermometer()
+    send_data()
 
